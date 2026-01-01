@@ -1,0 +1,6 @@
+# 服务端部署要求文件
+# 用于 Python 环境安装依赖
+
+Flask==3.0.0
+Flask-CORS==4.0.0
+gunicorn==21.2.0  # 生产环境 WSGI 服务器
