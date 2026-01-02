@@ -81,8 +81,15 @@ std::string GetWmiProperty(const std::wstring& className,
 
     if (SUCCEEDED(pclsObj->Get(propertyName.c_str(), 0, &vtProp, nullptr, 0))) {
       if (vtProp.vt == VT_BSTR && vtProp.bstrVal != nullptr) {
-        std::wstring ws(vtProp.bstrVal);
-        result = std::string(ws.begin(), ws.end());
+        // 使用 WideCharToMultiByte 正确转换宽字符到多字节字符
+        int len = WideCharToMultiByte(CP_UTF8, 0, vtProp.bstrVal, -1, nullptr,
+                                      0, nullptr, nullptr);
+        if (len > 0) {
+          std::string temp(len - 1, 0);
+          WideCharToMultiByte(CP_UTF8, 0, vtProp.bstrVal, -1, &temp[0], len,
+                              nullptr, nullptr);
+          result = temp;
+        }
       }
       VariantClear(&vtProp);
     }

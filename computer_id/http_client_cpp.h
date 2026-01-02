@@ -104,6 +104,7 @@ class LicenseClientCpp {
     std::string licenseKey;
     std::string message;
     std::string expiresAt;
+    std::string error;  // 错误信息
   };
   LicenseResponse requestLicense(const std::string& machineCode,
                                  const std::string& userInfo = "");
@@ -115,6 +116,7 @@ class LicenseClientCpp {
     bool valid;
     std::string message;
     std::string expiresAt;
+    std::string error;  // 错误信息
   };
   VerifyResponse verifyLicense(const std::string& machineCode,
                                const std::string& licenseKey);

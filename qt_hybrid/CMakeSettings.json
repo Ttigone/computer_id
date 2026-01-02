@@ -1,0 +1,54 @@
+{
+    "configurations": [
+        {
+            "name": "x64-Debug",
+            "generator": "Ninja",
+            "configurationType": "Debug",
+            "buildRoot": "${projectDir}\\out\\build\\${name}",
+            "installRoot": "${projectDir}\\out\\install\\${name}",
+            "cmakeCommandArgs": "",
+            "buildCommandArgs": "",
+            "ctestCommandArgs": "",
+            "inheritEnvironments": [
+                "msvc_x64_x64"
+            ],
+            "variables": [
+                {
+                    "name": "CMAKE_TOOLCHAIN_FILE",
+                    "value": "G:/0_self_develop_project/VS_Project/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                    "type": "FILEPATH"
+                },
+                {
+                    "name": "CMAKE_PREFIX_PATH",
+                    "value": "C:/Qt/6.8.1/msvc2022_64;C:/Qt/6.5.0/msvc2019_64;C:/Qt/5.15.2/msvc2019_64;D:/qt/qt6/6.8.3/msvc2022_64",
+                    "type": "STRING"
+                }
+            ]
+        },
+        {
+            "name": "x64-Release",
+            "generator": "Ninja",
+            "configurationType": "Release",
+            "buildRoot": "${projectDir}\\out\\build\\${name}",
+            "installRoot": "${projectDir}\\out\\install\\${name}",
+            "cmakeCommandArgs": "",
+            "buildCommandArgs": "",
+            "ctestCommandArgs": "",
+            "inheritEnvironments": [
+                "msvc_x64_x64"
+            ],
+            "variables": [
+                {
+                    "name": "CMAKE_TOOLCHAIN_FILE",
+                    "value": "G:/0_self_develop_project/VS_Project/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                    "type": "FILEPATH"
+                },
+                {
+                    "name": "CMAKE_PREFIX_PATH",
+                    "value": "C:/Qt/6.8.1/msvc2022_64;C:/Qt/6.5.0/msvc2019_64;C:/Qt/5.15.2/msvc2019_64",
+                    "type": "STRING"
+                }
+            ]
+        }
+    ]
+}

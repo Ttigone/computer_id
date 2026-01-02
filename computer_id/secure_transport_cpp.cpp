@@ -42,10 +42,11 @@ std::string SecureTransportCpp::base64Encode(
   BIO_write(bio, data.data(), static_cast<int>(data.size()));
   BIO_flush(bio);
 
-  BUF_MEM* bufferPtr;
-  BIO_get_mem_ptr(bio, &bufferPtr);
+  // OpenSSL 3.x 兼容性：使用 BIO_get_mem_data 替代直接访问 BUF_MEM
+  char* bufferPtr = nullptr;
+  long length = BIO_get_mem_data(bio, &bufferPtr);
 
-  std::string result(bufferPtr->data, bufferPtr->length);
+  std::string result(bufferPtr, length);
 
   BIO_free_all(bio);
 
